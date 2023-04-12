@@ -2,8 +2,8 @@
 import unidecode
 
 class Word:
-    def __init__(self):
-        self._word = None
+    def __init__(self, _word):
+        self._word = _word
         self._passwords = []
        
     # getter setter _word
@@ -14,7 +14,7 @@ class Word:
          self._word = word
 
     # getter  _passwords
-    def get_word(self):
+    def get_passwords(self):
          return self._passwords
 
     ## Methode
@@ -74,6 +74,6 @@ class Word:
     word = property(get_word, set_word) 
   
 
-word = Word()
-word.word = "jbsjéééùùHBSVfb"
-print(word.allPasswords())
+# word = Word('jbsjéééùùHBSVfb')
+# word.word = "jbsjéééùùHBSVfb"
+# print(word.allPasswords())
