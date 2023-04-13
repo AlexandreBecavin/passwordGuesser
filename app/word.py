@@ -5,6 +5,7 @@ class Word:
     def __init__(self, _word):
         self._word = _word
         self._passwords = []
+        self.allPasswords()
        
     # getter setter _word
     def get_word(self):
@@ -68,11 +69,7 @@ class Word:
         self.pushInArray(self.toCapitalize())
         self.pushInArray(self.concatLowerAccent())
         self.pushInArray(self.concatUpperAccent())
-        self.pushInArray(self.concatCapitalizeAccent())
-        return self._passwords
-
-    word = property(get_word, set_word) 
-  
+        self.pushInArray(self.concatCapitalizeAccent())  
 
 # word = Word('jbsjéééùùHBSVfb')
-# print(word.allPasswords())
+# print(word._passwords)

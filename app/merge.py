@@ -33,10 +33,10 @@ class Merge:
                 self.pushInArray(date.allPasswords(), self._listDatePasswords)
             else: 
                 word = Word(entryUser)
-                self.pushInArray(word.allPasswords(), self._listWordPasswords)
+                self.pushInArray(word._passwords, self._listWordPasswords)
                 if (self._hasLeet):
                     l33t = L33t(entryUser)
-                    self.pushInArray(l33t.getAllL33tWord(), self._listWordPasswords)
+                    self.pushInArray(l33t._passwordsL33t, self._listWordPasswords)
     
     def mergePassword(self): 
         if (self._listDatePasswords and self._listWordPasswords):
@@ -71,6 +71,6 @@ class Merge:
             self.pushInArray(str(date)+word+specialChar, self._passwords)
             self.pushInArray(specialChar+str(date)+word, self._passwords)
 
-
-# merge = Merge(['Alexandre', '2023-03-05'], False, False)
+# merge = Merge(['Alexandre', '2023-03-05'], True, False)
+# print(merge._passwords)
 # print(len(merge._passwords))

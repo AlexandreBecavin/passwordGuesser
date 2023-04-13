@@ -19,6 +19,7 @@ class L33t(Word):
             "g": "6"
         }
         super().__init__(_word)
+        self.getAllL33tWord()
 
      # getter setter _word
     def get_word(self):
@@ -36,12 +37,10 @@ class L33t(Word):
             self._passwordsL33t.append(value)
 
     def getAllL33tWord(self): 
-        allWord = self.allPasswords()
+        allWord = self._passwords
+        print(allWord)
         for word in allWord:
             self.getL33tWord(word)
-
-        return self._passwordsL33t
-
 
     # Methods
     def getL33tWord(self, word):
@@ -76,4 +75,4 @@ class L33t(Word):
         return cs
 
 # l33t = L33t('Alexandre')
-# print(l33t.getAllL33tWord())
+# print(l33t._passwordsL33t)
