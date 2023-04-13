@@ -47,11 +47,12 @@ class L33t(Word):
     def getL33tWord(self, word):
         CombinaisonsL33t = self.getAllCombinaisons(self.getAllIndex(word))
         for CombinaisonL33t in CombinaisonsL33t:
-            wordL33t = word
-            for letterL33t in CombinaisonL33t: 
-                numberToReplace = self._dicoL33t[wordL33t[letterL33t]]
-                wordL33t = wordL33t[:letterL33t] + numberToReplace + wordL33t[letterL33t +1:]
-            self.pushInArrayL33t(wordL33t)
+            if(CombinaisonL33t): 
+                wordL33t = word
+                for letterL33t in CombinaisonL33t: 
+                    numberToReplace = self._dicoL33t[wordL33t[letterL33t]]
+                    wordL33t = wordL33t[:letterL33t] + numberToReplace + wordL33t[letterL33t +1:]
+                self.pushInArrayL33t(wordL33t)
 
 
     def getAllIndex(self, word): 
@@ -74,6 +75,5 @@ class L33t(Word):
             cs += [c, c+[indexes[0]]]
         return cs
 
-l33t = L33t('azefjanéàvkzadjk')
-# l33t.word = 'azefjanvkzadjk'
-print(l33t.getAllL33tWord())
+# l33t = L33t('Alexandre')
+# print(l33t.getAllL33tWord())

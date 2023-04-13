@@ -1,8 +1,8 @@
 import datetime
 
 class Date:
-    def __init__(self):
-        self._date = None
+    def __init__(self, _date):
+        self._date = _date
         self._passwords = []
         self._methods = [[self.getDay, self.getDayWithZero], [self.getMonth, self.transformNumberToMonth, self.getMonthWithZero], [self.getYear, self.getYearIn2Number]] 
 
@@ -53,8 +53,8 @@ class Date:
         password = []
         for i in range(3):
             for nameMethod in self._methods[i] :
-                if(nameMethod is not None): 
-                    password.append(nameMethod())
+                if(nameMethod() is not None): 
+                    password.append(str(nameMethod()))
         return password
     
     def allPasswordsWithTwoElement(self):
@@ -107,6 +107,5 @@ class Date:
         return self._passwords
         
 
-date = Date()
-date._date = datetime.date(2020, 6, 5)
-print(date.allPasswords())
+# date = Date(datetime.date(2020, 12, 12))
+# print(date.allPasswords())

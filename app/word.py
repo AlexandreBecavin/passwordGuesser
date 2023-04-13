@@ -75,5 +75,4 @@ class Word:
   
 
 # word = Word('jbsjéééùùHBSVfb')
-# word.word = "jbsjéééùùHBSVfb"
 # print(word.allPasswords())
