@@ -16,8 +16,10 @@ def data():
         wordArray.append(data)
     for counter, data in enumerate(request.form.getlist('date')):
         wordArray.append(data)
-        
-    merge = Merge(wordArray, True, True)
+    hasL33t = True if 'l33t' in request.form and request.form['l33t'] else False
+    hasSpecialChar = True if 'specialChar' in request.form and request.form['specialChar'] else False
+
+    merge = Merge(wordArray, hasL33t, hasSpecialChar)
     return merge._passwords
 
 if __name__ == '__main__':

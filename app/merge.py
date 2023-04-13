@@ -72,5 +72,5 @@ class Merge:
             self.pushInArray(specialChar+str(date)+word, self._passwords)
 
 
-# merge = Merge(['Chien', '2023-03-05'], True, True)
+# merge = Merge(['Alexandre', '2023-03-05'], False, False)
 # print(len(merge._passwords))
