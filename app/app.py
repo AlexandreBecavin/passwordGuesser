@@ -20,7 +20,7 @@ def data():
     hasSpecialChar = True if 'specialChar' in request.form and request.form['specialChar'] else False
 
     merge = Merge(wordArray, hasL33t, hasSpecialChar)
-    return merge._passwords
+    return render_template('result.html', passwords=merge._passwords)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000)

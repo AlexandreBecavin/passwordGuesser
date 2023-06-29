@@ -19,14 +19,17 @@ class Word:
          return self._passwords
 
     ## Methode
-    def removeAccent(self):
-        if(unidecode.unidecode(self._word) != self._word): 
-            return unidecode.unidecode(self._word) 
+    @staticmethod
+    def removeAccent(word):
+        if(unidecode.unidecode(word) != word): 
+            print('aaaaaaaa')
+            return unidecode.unidecode(word) 
         return None
 
-    def toLowerCase(self, withoutAccent=None):
+    @classmethod
+    def toLowerCase(cls, word, withoutAccent=None):
         if withoutAccent is None:
-            return self._word.lower()
+            return word.lower()
         return withoutAccent.lower()
 
     def toUpperCase(self, withoutAccent=None):
@@ -41,19 +44,19 @@ class Word:
 
     ## Concat Methode
     def concatLowerAccent(self):
-        withoutAccent = self.removeAccent()
+        withoutAccent = self.removeAccent(self._word)
         if not (withoutAccent is None): 
-            return self.toLowerCase(withoutAccent)
+            return self.toLowerCase(self._word, withoutAccent)
         return None
 
     def concatUpperAccent(self):
-        withoutAccent = self.removeAccent()
+        withoutAccent = self.removeAccent(self._word)
         if not (withoutAccent is None): 
             return self.toUpperCase(withoutAccent)
         return None
 
     def concatCapitalizeAccent(self):
-        withoutAccent = self.removeAccent()
+        withoutAccent = self.removeAccent(self._word)
         if not (withoutAccent is None): 
             return self.toCapitalize(withoutAccent)
         return None
@@ -63,13 +66,16 @@ class Word:
             self._passwords.append(value)
 
     def allPasswords(self):
-        self.pushInArray(self.removeAccent())
-        self.pushInArray(self.toLowerCase())
+        self.pushInArray(self.removeAccent(self._word))
+        self.pushInArray(self.toLowerCase(self._word))
         self.pushInArray(self.toUpperCase())
         self.pushInArray(self.toCapitalize())
         self.pushInArray(self.concatLowerAccent())
         self.pushInArray(self.concatUpperAccent())
         self.pushInArray(self.concatCapitalizeAccent())  
 
-# word = Word('jbsjéééùùHBSVfb')
-# print(word._passwords)
+    def getAllIndex(self):
+        return null
+        
+word = Word('aléx')
+print(word._passwords)

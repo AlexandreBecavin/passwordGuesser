@@ -7,6 +7,21 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <h1>Voici les mot de passe généré</h1>
+    <h1>Voici les mots de passe générés</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Mots de passe</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for password in passwords %}
+            <tr>
+                <td>{{ password }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

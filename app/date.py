@@ -1,41 +1,41 @@
 import datetime
 
 class Date:
-    def __init__(self, _date):
-        self._date = _date
-        self._passwords = []
-        self._methods = [[self.getDay, self.getDayWithZero], [self.getMonth, self.transformNumberToMonth, self.getMonthWithZero], [self.getYear, self.getYearIn2Number]] 
+    def __init__(self, date):
+        self.__date = date
+        self.__passwords = []
+        self.__methods = [[self.getDay, self.getDayWithZero], [self.getMonth, self.transformNumberToMonth, self.getMonthWithZero], [self.getYear, self.getYearIn2Number]] 
 
 
     ## getter setter
     def get_word(self):
-        return self._date
+        return self.__date
 
     def set_word(self, date):
-        self._date = date
+        self.__date = date
 
      # getter  _passwords
     def get_word(self):
-         return self._passwords
+         return self.__passwords
 
     ## Method
     def getDay(self):
-        return self._date.day
+        return self.__date.day
 
     def getDayWithZero(self):
-        return self.addZeroToNumber(self._date.day)
+        return self.addZeroToNumber(self.__date.day)
 
     def getMonth(self):
-        return self._date.month
+        return self.__date.month
 
     def getMonthWithZero(self):
-        return self.addZeroToNumber(self._date.month)
+        return self.addZeroToNumber(self.__date.month)
 
     def getYear(self):
-        return self._date.year
+        return self.__date.year
 
     def getYearIn2Number(self):
-        year = self._date.year
+        year = self.__date.year
         return year % 100
     
     def transformNumberToMonth(self):
@@ -52,7 +52,7 @@ class Date:
     def allPasswordsWithOneElement(self):
         password = []
         for i in range(3):
-            for nameMethod in self._methods[i] :
+            for nameMethod in self.__methods[i] :
                 if(nameMethod() is not None): 
                     password.append(str(nameMethod()))
         return password
@@ -60,12 +60,12 @@ class Date:
     def allPasswordsWithTwoElement(self):
         password = []
         for i in range(3):
-            if i + 1 < len(self._methods) :
-                secondMethod = self._methods[i + 1]
+            if i + 1 < len(self.__methods) :
+                secondMethod = self.__methods[i + 1]
             else :
-                secondMethod = self._methods[0]
+                secondMethod = self.__methods[0]
 
-            for nameMethod1 in self._methods[i] :
+            for nameMethod1 in self.__methods[i] :
                 for nameMethod2 in secondMethod :
                     if (nameMethod1() is not None and nameMethod2() is not None):
                         password.append(str(nameMethod1()) + str(nameMethod2()))
@@ -75,17 +75,17 @@ class Date:
     def allPasswordsWithThreeElement(self):
         password = []
         for i in range(3):
-            if i + 1 < len(self._methods) and i + 2 < len(self._methods):
-                secondMethod = self._methods[i + 1]
-                thirdMethod = self._methods[i + 2]
-            elif i + 1 < len(self._methods) :
-                secondMethod = self._methods[i + 1]
-                thirdMethod = self._methods[0]
+            if i + 1 < len(self.__methods) and i + 2 < len(self.__methods):
+                secondMethod = self.__methods[i + 1]
+                thirdMethod = self.__methods[i + 2]
+            elif i + 1 < len(self.__methods) :
+                secondMethod = self.__methods[i + 1]
+                thirdMethod = self.__methods[0]
             else :
-                secondMethod = self._methods[0]
-                thirdMethod = self._methods[1]
+                secondMethod = self.__methods[0]
+                thirdMethod = self.__methods[1]
 
-            for nameMethod1 in self._methods[i] :
+            for nameMethod1 in self.__methods[i] :
                 for nameMethod2 in secondMethod :
                     for nameMethod3 in thirdMethod :
                         if (nameMethod1() is not None and nameMethod2() is not None and nameMethod3() is not None):
@@ -97,14 +97,14 @@ class Date:
 
     def pushInArray(self, value):
         if not (value is None):
-            self._passwords.append(value)
+            self.__passwords.append(value)
 
     def allPasswords(self):          
         self.pushInArray(self.allPasswordsWithOneElement())
         self.pushInArray(self.allPasswordsWithTwoElement())
         self.pushInArray(self.allPasswordsWithThreeElement())
 
-        return self._passwords
+        return self.__passwords
         
 
 # date = Date(datetime.date(2020, 12, 12))

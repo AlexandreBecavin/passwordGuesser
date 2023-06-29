@@ -1,9 +1,7 @@
 from word import Word
 
 class L33t(Word): 
-
     def __init__(self, _word):
-
         self._word = _word
         self._passwordsL33t = []
         self._dicoL33t = {
@@ -38,7 +36,6 @@ class L33t(Word):
 
     def getAllL33tWord(self): 
         allWord = self._passwords
-        print(allWord)
         for word in allWord:
             self.getL33tWord(word)
 
@@ -54,6 +51,7 @@ class L33t(Word):
                 self.pushInArrayL33t(wordL33t)
 
 
+    ## surcharge methode
     def getAllIndex(self, word): 
         ListIndicesByLetter = []
         finalIndicies = [] 
