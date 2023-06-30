@@ -5,11 +5,40 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Result password</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #search-input {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function filterPasswords() {
+            var input, filter, table, tbody, tr, td, i, txtValue;
+            input = document.getElementById("search-input");
+            filter = input.value;
+            table = document.getElementById("password-table");
+            tbody = table.getElementsByTagName("tbody")[0];
+            tr = tbody.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Voici les mots de passe générés</h1>
 
-    <table>
+    <input type="search" id="search-input" onkeyup="filterPasswords()" placeholder="Rechercher un mot de passe">
+
+    <table id="password-table">
         <thead>
             <tr>
                 <th>Mots de passe</th>

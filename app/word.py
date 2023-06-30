@@ -22,7 +22,6 @@ class Word:
     @staticmethod
     def removeAccent(word):
         if(unidecode.unidecode(word) != word): 
-            print('aaaaaaaa')
             return unidecode.unidecode(word) 
         return None
 
@@ -77,5 +76,5 @@ class Word:
     def getAllIndex(self):
         return null
         
-word = Word('aléx')
-print(word._passwords)
+# word = Word('aléx')
+# print(word._passwords)
