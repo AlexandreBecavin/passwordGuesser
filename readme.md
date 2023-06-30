@@ -6,11 +6,10 @@ lancer la commande: `docker-compose up -d`
 
 url: `localhost:5000`  
 
-
 # Question Poo
 
 ## Utilisation de visibilité publique (lien dans votre code) + définition
-Il n'y a pas vraiment de notion de privé, protéger en public en python cependant celui-ci est implémenté avec des conventions  
+Il n'y a pas vraiment de notion de privé, protéger en public en python cependant celui-ci peut être implémenté avec des conventions  
 [Fichier word.py ligne 8 (self.allPasswords())](https://github.com/AlexandreBecavin/passwordGuesser/blob/master/app/word.py#L8)  
 C'est un attribut ou une méthode accessible à l'exterieur de la class  
 
